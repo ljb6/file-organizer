@@ -2,8 +2,8 @@ import os
 import mimetypes
 import shutil
 
-directory = 'C:\\Users\\lucca\\Downloads'
-desktop = 'C:\\Users\\lucca\\Desktop\\teste\\'
+directory = 'DOWNLOADS_DIRECTORY'
+desktop = 'DESTINATION_FOLDER'
 
 downloads = os.listdir(directory)
 
