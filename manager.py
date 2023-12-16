@@ -2,22 +2,16 @@ import os
 import mimetypes
 import shutil
 
-# Directories paths
-DISORGANIZED_DIRECTORY = 'DOWNLOADS_DIRECTORY'
-DESTINY_DIRECTORY = 'DESTINATION_FOLDER'
+def organize(DISORGANIZED_DIRECTORY, DESTINY_DIRECTORY):
+  types = os.listdir(DESTINY_DIRECTORY)
+  undefined_files = DESTINY_DIRECTORY + 'undefined-files'
 
-downloads = os.listdir(DISORGANIZED_DIRECTORY)
-types = os.listdir(DESTINY_DIRECTORY)
-undefined_files = DESTINY_DIRECTORY + 'undefined-files'
-
-# Select type of usage
-print('How do you want to manage your downloads?')
-move_or_copy = int(input('1 - Move\n2 - Copy/paste\n> '))
-
-if not os.path.exists(undefined_files):
+  if not os.path.exists(undefined_files):
     os.makedirs(undefined_files)
+  
+  move_or_copy = 2
 
-for file in os.listdir(DISORGANIZED_DIRECTORY):
+  for file in os.listdir(DISORGANIZED_DIRECTORY):
     file_directory = os.path.join(DISORGANIZED_DIRECTORY, file)
 
     mime, encoding = mimetypes.guess_type(file_directory)
@@ -39,5 +33,3 @@ for file in os.listdir(DISORGANIZED_DIRECTORY):
 
     except PermissionError:
       print('File:', file, 'has not permission to move')
-
-print('Done!')
