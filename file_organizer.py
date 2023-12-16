@@ -3,10 +3,10 @@ import mimetypes
 import shutil
 
 # Directories paths
-DOWNLOADS_DIRECTORY = 'DOWNLOADS_DIRECTORY'
+DISORGANIZED_DIRECTORY = 'DOWNLOADS_DIRECTORY'
 DESTINY_DIRECTORY = 'DESTINATION_FOLDER'
 
-downloads = os.listdir(DOWNLOADS_DIRECTORY)
+downloads = os.listdir(DISORGANIZED_DIRECTORY)
 types = os.listdir(DESTINY_DIRECTORY)
 undefined_files = DESTINY_DIRECTORY + 'undefined-files'
 
@@ -17,8 +17,8 @@ move_or_copy = int(input('1 - Move\n2 - Copy/paste\n> '))
 if not os.path.exists(undefined_files):
     os.makedirs(undefined_files)
 
-for file in os.listdir(DOWNLOADS_DIRECTORY):
-    file_directory = os.path.join(DOWNLOADS_DIRECTORY, file)
+for file in os.listdir(DISORGANIZED_DIRECTORY):
+    file_directory = os.path.join(DISORGANIZED_DIRECTORY, file)
 
     mime, encoding = mimetypes.guess_type(file_directory)
 
