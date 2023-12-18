@@ -51,6 +51,7 @@ button2.pack()
 def start_managment():  
   organize(disorganized_directory, destiny_directory + '/')
   print('Done')
+  messagebox.showinfo("File organizer", "Finished execution.")
   window.destroy()
 
 button3 = ttk.Label(frm, text="")
